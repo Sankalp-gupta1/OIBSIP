@@ -56,3 +56,37 @@ OIBSIP/
 
 Sankalp Gupta  
 GitHub: https://github.com/Sankalp-gupta1
+
+
+## Run the web demo locally
+
+The hosted portfolio version is a static web demo, so it does not need an API key or database for local preview.
+
+### Step 1 — clone the repository
+
+```bash
+git clone https://github.com/Sankalp-gupta1/OIBSIP.git
+cd OIBSIP
+```
+
+### Step 2 — open the deployable web folder
+
+```bash
+cd web
+```
+
+### Step 3 — start a small local server
+
+```bash
+python -m http.server 8000
+```
+
+### Step 4 — open the app
+
+```text
+http://localhost:8000
+```
+
+Production demo: **https://oibsip-ml-lab.vercel.app/**
+
+The original project files are kept in the repository. The `web/` version is the browser-friendly deployment made for easy review.
