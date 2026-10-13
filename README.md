@@ -1,145 +1,58 @@
-# OIBSIP — Machine Learning Internship Projects
+# OIBSIP Machine Learning Lab
 
-A collection of machine learning projects completed during the **Oasis Infobyte Data Science Internship**.
+Three Oasis Infobyte internship projects deployed in one live application.
 
-The repository contains three independent projects covering regression, text classification, and multiclass classification.
+## Live app
 
-## Projects
+**https://oibsip-ml-lab.vercel.app/**
 
-### 1. Car Price Prediction
+The production app loads the actual saved model files already present in this repository:
 
-Predicts the estimated selling price of a used car from features such as purchase year, present price, kilometers driven, fuel type, seller type, transmission type, and ownership history.
+- Iris Flower Detection — SVM with RBF kernel
+- Email Spam Detection — saved text vectorizer + classifier
+- Car Price Prediction — Random Forest Regressor
 
-**Model:** Random Forest Regressor
+## Production stack
 
-**Key steps:**
+- FastAPI
+- scikit-learn
+- NumPy / Pandas
+- saved pickle/joblib models
+- responsive HTML/CSS/JavaScript UI
+- Vercel
 
-- Data preprocessing
-- Feature engineering
-- One-hot encoding
-- Train/test split
-- Regression model training
-- R², MAE, and RMSE evaluation
-- Model serialization
-- Streamlit prediction interface
+## API endpoints
 
-**Run:**
+- `GET /health`
+- `POST /api/iris`
+- `POST /api/spam`
+- `POST /api/car`
 
-```bash
-python Car-Price-Prediction/src/train_model.py
-streamlit run Car-Price-Prediction/src/app.py
-```
+The original Streamlit / Flask source files, training scripts, datasets and model artifacts remain in their original folders.
 
----
-
-### 2. Email Spam Detection
-
-Classifies email/message text as **Spam** or **Not Spam**.
-
-**Model:** Multinomial Naive Bayes  
-**Text representation:** TF-IDF with unigram and bigram features
-
-**Key steps:**
-
-- Text cleaning
-- TF-IDF vectorization
-- Stratified train/test split
-- Naive Bayes classification
-- Accuracy and classification report
-- Confusion matrix
-- ROC curve / AUC
-- Saved model + vectorizer
-- Flask prediction interface
-
-**Run:**
+## Local production run
 
 ```bash
-cd email_spam_detection
 pip install -r requirements.txt
-python src/train.py
-python app.py
+uvicorn api.index:app --reload
 ```
 
----
+Open `http://127.0.0.1:8000`.
 
-### 3. Iris Flower Detection
-
-Predicts the species of an Iris flower from sepal and petal measurements.
-
-**Model:** SVM with RBF kernel
-
-**Key steps:**
-
-- Label encoding
-- Standard scaling
-- SVM pipeline
-- Stratified train/test split
-- Accuracy evaluation
-- Classification report
-- Confusion matrix
-- Saved model bundle
-- Streamlit prediction interface
-
-**Train:**
-
-```bash
-python iris_flower_detection/src/train.py
-```
-
-**Run UI:**
-
-```bash
-streamlit run iris_flower_detection/src/app.py
-```
-
-> The current Iris Streamlit app contains a local model-file path. Update that path to the generated `iris_model.pkl` location on your machine before running.
-
-## Repository Structure
+## Project folders
 
 ```text
 OIBSIP/
-├── Car-Price-Prediction/
-│   ├── data/
-│   ├── model/
-│   └── src/
+├── iris_flower_detection/
 ├── email_spam_detection/
-│   ├── data/
-│   ├── model/
-│   ├── src/
-│   ├── app.py
-│   └── requirements.txt
-└── iris_flower_detection/
-    ├── data/
-    ├── model/
-    └── src/
+├── Car-Price-Prediction/
+├── api/
+│   └── index.py
+├── requirements.txt
+└── vercel.json
 ```
-
-## Tech Stack
-
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Streamlit
-- Flask
-- Joblib / Pickle
-
-## Learning Outcomes
-
-These projects demonstrate practical use of:
-
-- Regression
-- Classification
-- NLP preprocessing
-- Feature engineering
-- Model evaluation
-- Model persistence
-- Lightweight ML web interfaces
 
 ## Author
 
-**Sankalp Gupta**  
-Data Science Intern — Oasis Infobyte
-
+Sankalp Gupta  
 GitHub: https://github.com/Sankalp-gupta1
